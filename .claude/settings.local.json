@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-react-app:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss init:*)",
+      "Bash(npm start)",
+      "Bash(taskkill:*)",
+      "Bash(set PORT=3001)",
+      "Bash(npm uninstall:*)",
+      "Bash(del postcss.config.js)",
+      "Bash(del tailwind.config.js)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
