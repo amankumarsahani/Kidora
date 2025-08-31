@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -9,64 +10,77 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="/" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2">
               <div className="text-2xl font-pacifico text-purple-600">
                 Kidora
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a
-              href="/stationery"
+            <Link
+              to="/stationery"
               className="text-gray-700 hover:text-purple-600 transition-colors whitespace-nowrap cursor-pointer"
             >
               Stationery
-            </a>
-            <a
-              href="/clothes"
+            </Link>
+            <Link
+              to="/clothes"
               className="text-gray-700 hover:text-purple-600 transition-colors whitespace-nowrap cursor-pointer"
             >
               Clothes
-            </a>
-            <a
-              href="/toys"
+            </Link>
+            <Link
+              to="/toys"
               className="text-gray-700 hover:text-purple-600 transition-colors whitespace-nowrap cursor-pointer"
             >
               Toys
-            </a>
-            <a
-              href="/accessories"
+            </Link>
+            <Link
+              to="/accessories"
               className="text-gray-700 hover:text-purple-600 transition-colors whitespace-nowrap cursor-pointer"
             >
               Accessories
-            </a>
-            <a
-              href="/bundles"
+            </Link>
+            <Link
+              to="/bundles"
               className="text-gray-700 hover:text-purple-600 transition-colors whitespace-nowrap cursor-pointer"
             >
               Create Bundle
-            </a>
+            </Link>
           </nav>
 
           {/* Right side icons */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="w-6 h-6 flex items-center justify-center text-gray-700 hover:text-purple-600 transition-colors cursor-pointer">
-              <i className="ri-search-line text-xl"></i>
-            </button>
-            <button className="w-6 h-6 flex items-center justify-center text-gray-700 hover:text-purple-600 transition-colors cursor-pointer">
-              <i className="ri-heart-line text-xl"></i>
-            </button>
-            <button className="relative w-6 h-6 flex items-center justify-center text-gray-700 hover:text-purple-600 transition-colors cursor-pointer">
-              <i className="ri-shopping-cart-line text-xl"></i>
-              <span className="absolute -top-2 -right-2 bg-purple-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                0
-              </span>
-            </button>
-            <button className="w-6 h-6 flex items-center justify-center text-gray-700 hover:text-purple-600 transition-colors cursor-pointer">
-              <i className="ri-user-line text-xl"></i>
-            </button>
+            <div className="flex items-center space-x-2">
+              <button className="w-6 h-6 flex items-center justify-center text-gray-700 hover:text-purple-600 transition-colors cursor-pointer">
+                <i className="ri-search-line text-xl"></i>
+              </button>
+              <button className="w-6 h-6 flex items-center justify-center text-gray-700 hover:text-purple-600 transition-colors cursor-pointer">
+                <i className="ri-heart-line text-xl"></i>
+              </button>
+              <button className="relative w-6 h-6 flex items-center justify-center text-gray-700 hover:text-purple-600 transition-colors cursor-pointer">
+                <i className="ri-shopping-cart-line text-xl"></i>
+                <span className="absolute -top-2 -right-2 bg-purple-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  0
+                </span>
+              </button>
+            </div>
+            <div className="flex items-center space-x-3 ml-4">
+              <Link
+                to="/signin"
+                className="text-gray-700 hover:text-purple-600 transition-colors font-medium cursor-pointer"
+              >
+                Sign In
+              </Link>
+              <Link
+                to="/signup"
+                className="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors font-medium cursor-pointer"
+              >
+                Sign Up
+              </Link>
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -87,37 +101,58 @@ const Header: React.FC = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4">
-              <a
-                href="/stationery"
+              <Link
+                to="/stationery"
                 className="text-gray-700 hover:text-purple-600 transition-colors cursor-pointer"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Stationery
-              </a>
-              <a
-                href="/clothes"
+              </Link>
+              <Link
+                to="/clothes"
                 className="text-gray-700 hover:text-purple-600 transition-colors cursor-pointer"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Clothes
-              </a>
-              <a
-                href="/toys"
+              </Link>
+              <Link
+                to="/toys"
                 className="text-gray-700 hover:text-purple-600 transition-colors cursor-pointer"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Toys
-              </a>
-              <a
-                href="/accessories"
+              </Link>
+              <Link
+                to="/accessories"
                 className="text-gray-700 hover:text-purple-600 transition-colors cursor-pointer"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Accessories
-              </a>
-              <a
-                href="/bundles"
+              </Link>
+              <Link
+                to="/bundles"
                 className="text-gray-700 hover:text-purple-600 transition-colors cursor-pointer"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Create Bundle
-              </a>
-              <div className="flex items-center space-x-4 pt-4 border-t border-gray-200">
+              </Link>
+              <div className="flex flex-col space-y-3 pt-4 border-t border-gray-200">
+                <Link
+                  to="/signin"
+                  className="text-gray-700 hover:text-purple-600 transition-colors font-medium cursor-pointer"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Sign In
+                </Link>
+                <Link
+                  to="/signup"
+                  className="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors font-medium text-center cursor-pointer"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Sign Up
+                </Link>
+              </div>
+              <div className="flex items-center justify-around pt-4 border-t border-gray-200">
                 <button className="flex items-center space-x-2 text-gray-700 hover:text-purple-600 transition-colors cursor-pointer">
                   <i className="ri-search-line text-xl"></i>
                   <span>Search</span>
@@ -125,10 +160,6 @@ const Header: React.FC = () => {
                 <button className="flex items-center space-x-2 text-gray-700 hover:text-purple-600 transition-colors cursor-pointer">
                   <i className="ri-heart-line text-xl"></i>
                   <span>Wishlist</span>
-                </button>
-                <button className="flex items-center space-x-2 text-gray-700 hover:text-purple-600 transition-colors cursor-pointer">
-                  <i className="ri-user-line text-xl"></i>
-                  <span>Account</span>
                 </button>
               </div>
             </nav>

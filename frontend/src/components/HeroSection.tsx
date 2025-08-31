@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Bubbles from './Bubbles';
 
 interface HeroSlide {
@@ -125,18 +126,18 @@ const HeroSection: React.FC = () => {
                         {slide.description}
                       </p>
                       <div className="flex flex-col sm:flex-row gap-4">
-                        <a
-                          href={slide.primaryButton.href}
+                        <Link
+                          to={slide.primaryButton.href}
                           className="bg-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-purple-700 transition-colors text-center whitespace-nowrap cursor-pointer"
                         >
                           {slide.primaryButton.text}
-                        </a>
-                        <a
-                          href={slide.secondaryButton.href}
+                        </Link>
+                        <Link
+                          to={slide.secondaryButton.href}
                           className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-purple-50 transition-colors text-center whitespace-nowrap cursor-pointer"
                         >
                           {slide.secondaryButton.text}
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>

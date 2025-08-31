@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface Category {
   id: string;
@@ -65,7 +66,7 @@ const ProductCategories: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {categories.map((category) => (
             <div key={category.id} className="group cursor-pointer">
-              <a href={category.href}>
+              <Link to={category.href}>
                 <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -90,7 +91,7 @@ const ProductCategories: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
